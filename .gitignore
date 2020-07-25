@@ -32,7 +32,6 @@ dwsync.xml
 # Komodo
 *.komodoproject
 .komodotools
-.env
 
 # Folders to ignore
 .hg
