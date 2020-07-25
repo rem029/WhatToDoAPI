@@ -132,11 +132,17 @@ router.delete("/task/:userID/:tlID", (req, res) => {
 
 	TaskLists.findOneAndUpdate(filter, queryDelete, (err, tl) => {
 		if (!err) {
-			TaskLists.findOne({ userID: filter.userID, id: filter.id }, (err, tl) => {
-				if (!err) {
-					res.json(tl);
+			TaskLists.findOne(
+				{ userID: filter.userID, id: filter.id },
+				(errall, tlall) => {
+					if (!errall) {
+						res.json(tlall);
+					} else {
+						console.log(errall);
+						res.json({ title: "Error", message: errall });
+					}
 				}
-			});
+			);
 		} else {
 			console.log(err);
 			res.json({ title: "Error", message: err });
