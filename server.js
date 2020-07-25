@@ -24,6 +24,10 @@ app.get("/", (req, res) => {
 	res.sendStatus(404);
 });
 
-app.listen(3000, () => {
-	console.log("Server started at port " + 3000);
+app.get("/favico.ico'", (req, res) => {
+	res.sendStatus(404);
+});
+
+app.listen(port, () => {
+	console.log("Server started at port " + port);
 });
